@@ -3,7 +3,6 @@ const { MongoClient } = require('mongodb');
 const cors = require('cors');
 // must use capital ObjectID and require will be ObjectId;
 const ObjectId = require('mongodb').ObjectId;
-
 require('dotenv').config()
 
 const app = express();
@@ -68,9 +67,7 @@ async function run() {
         const result = await servicesCollection.deleteOne(query)
         // console.log('result = ',result);
         res.json(result);
-
     })
-
 }
 run().catch(console.dir);
 
@@ -85,11 +82,7 @@ app.get('/hello',(req,res) => {
 app.listen(port, () => {
     console.log('Running Genius server on port ', port);
 })
-
-
 /* 
-
-
  One time:
  1. heroku account open 
  2. heroku software install
@@ -110,5 +103,6 @@ Update
 1.save everything check locally 
 2.git add, git commit
 3. git push herokuMain
+4. heroku app > settings > add var (add_DB_USER,DB_PASS)
 
 */
